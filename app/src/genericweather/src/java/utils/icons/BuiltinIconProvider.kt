@@ -54,7 +54,7 @@ object BuiltinIconProvider {
         val drawableName = when (conditionCode) {
             200, 201, 210, 211, 230, 231 -> "google_<theme>_isolated_thunderstorms"
             202, 212, 232 -> "google_<theme>_strong_thunderstorms"
-            221 -> "google_<theme>_isolated_thunderstorms_<time>"
+            221 -> "google_<theme>_isolated_scattered_thunderstorms_<time>"
             300, 301, 302 -> "google_<theme>_drizzle"
             310, 311, 312, 313, 314 -> "google_<theme>_showers_rain"
             321 -> "google_<theme>_scattered_showers_<time>"
