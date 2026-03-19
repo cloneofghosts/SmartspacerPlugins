@@ -72,7 +72,7 @@ object BuiltinIconProvider {
             800 -> "google_<theme>_clear_<time>"
             801 -> "google_<theme>_mostly_clear_<time>"
             802 -> "google_<theme>_partly_cloudy_<time>"
-            803 -> "google_<theme>_mosty_cloudy_<time>"
+            803 -> "google_<theme>_mostly_cloudy_<time>"
             804 -> "google_<theme>_cloudy"
 
             else -> throw IllegalArgumentException("Unknown condition code: $conditionCode")
