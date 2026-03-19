@@ -56,8 +56,7 @@ object BuiltinIconProvider {
             202, 212, 232 -> "google_<theme>_strong_thunderstorms"
             221 -> "google_<theme>_isolated_scattered_thunderstorms_<time>"
             300, 301, 302 -> "google_<theme>_drizzle"
-            310, 311, 312, 313, 314 -> "google_<theme>_showers_rain"
-            321 -> "google_<theme>_scattered_showers_<time>"
+            310, 311, 312, 313, 314, 321 -> "google_<theme>_showers_rain"
             500, 501 -> "google_<theme>_showers_rain"
             502, 503, 504, 522 -> "google_<theme>_heavy_rain"
             511 -> "google_<theme>_mixed_rain_sleet_hail"
@@ -108,18 +107,19 @@ object BuiltinIconProvider {
         }
 
         if (time == "day") {
-            if (conditionCode == 801) return WeatherStateIcon.MOSTLY_CLEAR_NIGHT
+            if (conditionCode in setOf(200, 201, 210, 211, 221, 230, 231)) return WeatherStateIcon.ISOLATED_SCATTERED_TSTORMS_NIGHT
+            else if (conditionCode == 531) return WeatherStateIcon.SCATTERED_SHOWERS_NIGHT
+            else if (conditionCode == 801) return WeatherStateIcon.MOSTLY_CLEAR_NIGHT
             else if (conditionCode == 802) return WeatherStateIcon.PARTLY_CLOUDY_NIGHT
             else if (conditionCode == 803) return WeatherStateIcon.MOSTLY_CLOUDY_NIGHT
             else if (conditionCode == 800) return WeatherStateIcon.CLEAR_NIGHT
-            else if (conditionCode == 521) return WeatherStateIcon.ISOLATED_SCATTERED_TSTORMS_NIGHT
-            else if (conditionCode in setOf(200, 201, 210, 211, 221, 230, 231)) return WeatherStateIcon.SCATTERED_SHOWERS_NIGHT
         }
 
         return when (conditionCode) {
+            200, 201, 210, 211, 221, 230, 231-> ISOLATED_SCATTERED_TSTORMS_DAY
             202, 212, 232 -> WeatherStateIcon.STRONG_TSTORMS
-            200, 201, 210, 211, 221 , 230, 231-> ISOLATED_SCATTERED_TSTORMS_DAY
-            300, 301, 302, 310, 311, 312, 313, 314, 321 -> WeatherStateIcon.DRIZZLE
+            300, 301, 302 -> WeatherStateIcon.DRIZZLE
+            310, 311, 312, 313, 314, 321 -> WeatherStateIcon.SHOWERS_RAIN
             500, 501, 520, 521 -> WeatherStateIcon.SHOWERS_RAIN
             502, 503, 504, 520, 522, 531 -> WeatherStateIcon.HEAVY_RAIN
             511 -> WeatherStateIcon.MIXED_RAIN_HAIL_RAIN_SLEET
